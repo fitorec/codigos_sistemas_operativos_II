@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import socket
+import socket, sys
 
 class Chatin:
 	id
@@ -15,6 +15,12 @@ class Chatin:
 			linea += c
 		self.id = int(linea)
 		print "Soy el cliente:", self.id
+		while(True):
+			msg = sys.stdin.readline()
+			s.send(msg.encode("utf-8"))
+			if msg == "exit\n":
+				print "ADIOS"
+				return 0
 
 cliente = Chatin()
 cliente.conectar()
