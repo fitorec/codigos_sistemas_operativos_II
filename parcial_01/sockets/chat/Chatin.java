@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Chatin {
 	int id;
+
 	public Chatin() {
 		Scanner sc = new Scanner(System.in);
 		try {
@@ -25,6 +26,12 @@ public class Chatin {
 				s.getOutputStream(), true
 			);
 			while(true) {
+				String msgRecibido = "";
+				do {
+					msgRecibido = b.readLine();
+					System.out.println(msgRecibido);
+				} while(msgRecibido.length()>1);
+				
 				String msg = sc.nextLine();
 				out.println(msg);
 				if(msg.equals("exit")) {
